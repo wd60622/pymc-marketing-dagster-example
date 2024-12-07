@@ -1,0 +1,15 @@
+[project]
+name = "pymc_marketing_dagster_example"
+version = "0.1.0"
+description = "An example project for pymc-marketing with dagster"
+authors = [
+    { name = "Will Dean", email = "wd60622@gmail.com" }
+]
+dependencies = []
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.dagster]
+module_name = "pymc_marketing_dagster_example"
