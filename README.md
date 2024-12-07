@@ -1,7 +1,7 @@
 # PyMC-Marketing Dagster Example
 
 This repository contains an example of how to use PyMC-Marketing and Dagster to
-build a simple marketing attribution model.
+schedule a Marketing Mix Model.
 
 ![Backfill](./images/scheduled-backfill.png)
 
