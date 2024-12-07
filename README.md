@@ -11,6 +11,11 @@ schedule a Marketing Mix Model.
 
 ![Backfill](./images/scheduled-backfill.png)
 
+This allows for easy scheduling and backfilling of the model for given periods
+of the data.
+
+![Backfill](./images/launch-backfill.png)
+
 Kick off the dagster dev server with the following command:
 
 ```bash
