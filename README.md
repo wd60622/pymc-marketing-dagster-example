@@ -1,5 +1,11 @@
 # PyMC-Marketing Dagster Example
 
+> [!WARNING]
+>
+> This project is still under development. If you would like to contribute,
+> please feel free. I have some open issues which may not be complete, but I am
+> happy to help you get started.
+
 This repository contains an example of how to use PyMC-Marketing and Dagster to
 schedule a Marketing Mix Model.
 
