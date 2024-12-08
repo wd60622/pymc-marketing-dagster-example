@@ -3,7 +3,12 @@
 import pandas as pd
 import xarray as xr
 
-from dagster import asset, TimeWindowPartitionsDefinition, AssetExecutionContext
+from dagster import (
+    asset,
+    TimeWindowPartitionsDefinition,
+    AssetExecutionContext,
+    AssetIn,
+)
 
 from pymc_marketing.mmm import (
     GeometricAdstock,
@@ -56,7 +61,7 @@ def mmm() -> MMM:
     )
 
 
-@asset(partitions_def=partitions_def)
+@asset(partitions_def=partitions_def, io_manager_key="mmm_io_manager")
 def fit_mmm(marketing_data: pd.DataFrame, mmm: MMM):
     columns = mmm.channel_columns + mmm.control_columns + [mmm.date_column]
     X = marketing_data.loc[:, columns]
@@ -66,6 +71,12 @@ def fit_mmm(marketing_data: pd.DataFrame, mmm: MMM):
     return mmm
 
 
-@asset(partitions_def=partitions_def)
+@asset(
+    partitions_def=partitions_def,
+    io_manager_key="netcdf_io_manager",
+    ins={
+        "fit_mmm": AssetIn(input_manager_key="mmm_io_manager"),
+    },
+)
 def inference_data(fit_mmm: MMM) -> xr.Dataset:
     return fit_mmm.fit_result
