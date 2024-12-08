@@ -7,6 +7,9 @@ authors = [
 ]
 dependencies = []
 
+[tool.setuptools]
+packages = ["pymc_marketing_dagster_example"]
+
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
