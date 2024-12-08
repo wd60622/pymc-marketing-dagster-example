@@ -26,15 +26,14 @@ dagster dev -m pymc_marketing_dagster_example.definitions
 
 ## Local Development
 
-Install the environment with `conda`:
+Install the environment with [`pixi`](https://pixi.sh/dev/):
 
 ```bash
-conda env create -f environment.yml
+pixi install
 ```
 
-Activate the environment and install the package in editable mode:
+Activate the environment and install the pre-commit hooks:
 
 ```bash
-conda activate pymc-marketing-dagster-example
-pip install -e .
+pixi run pre-commit install
 ```
